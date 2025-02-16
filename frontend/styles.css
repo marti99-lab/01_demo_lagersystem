@@ -1,0 +1,511 @@
+body {
+    margin: 0;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    background: linear-gradient(to bottom, #ffefba, #fcd34d);
+    color: #6b4226;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-size: 16px;
+}
+
+.header {
+    grid-area: header;
+    background: linear-gradient(to right, #ff7f50, #ffa500);
+    color: #ffffff;
+    text-align: center;
+    padding: 1.25rem;
+    box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.2);
+    border-bottom: 0.3125rem solid #e85d04;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    margin: 0;
+    text-shadow: 0.125rem 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
+}
+
+.header p {
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+}
+
+.container {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 15rem 1fr;
+    grid-template-areas: 
+        "header header"
+        "sidebar main"
+        "footer footer";
+    height: 100vh;
+}
+
+.sidebar {
+    grid-area: sidebar;
+    background: linear-gradient(to bottom, #ffcc80, #ffeb99);
+    color: #6b4226;
+    padding: 1.25rem;
+    border-right: 0.3125rem solid #ffa500;
+    overflow-y: auto;
+}
+
+.content-wrapper {
+    margin-top: 5rem;
+    padding: 1.25rem;
+    box-sizing: border-box;
+}
+
+.nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #6b4226;
+    padding: 0.625rem;
+    background-color: #ffd166;
+    border-radius: 0.625rem;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.nav-links a:hover {
+    background-color: #ff7f50;
+    transform: scale(1.1);
+    color: white;
+}
+
+
+.sidebar-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.main-content {
+    grid-area: main;
+    padding: 1.25rem;
+    overflow-y: auto;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(18.75rem, 1fr));
+    gap: 0.625rem;
+}
+
+.card {
+    background-color: #ffe5b4;
+    padding: 1.25rem;
+    border: 0.125rem solid #ffa500;
+    border-radius: 0.9375rem;
+    box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-0.3125rem);
+    background-color: #ffcc80;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.25rem 0;
+    background-color: #ffeb99;
+}
+
+table th,
+table td {
+    border: 0.125rem solid #ffa500;
+    padding: 0.625rem;
+    text-align: left;
+}
+
+table th {
+    background-color: #ffa500;
+    color: #ffffff;
+}
+
+table tr:hover {
+    background-color: #ffcc80;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 182, 193, 0.8);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background: linear-gradient(to bottom, #ffa500, #ffd166);
+    border: 0.1875rem solid #ff7f50;
+    color: #6b4226;
+    padding: 1.25rem;
+    border-radius: 0.9375rem;
+    text-align: center;
+    margin: 5% auto;
+    box-shadow: 0 0.25rem 0.9375rem rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 31.25rem;
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-content h2 {
+    margin-bottom: 1.25rem;
+    color: #6b4226;
+    text-shadow: 0.0625rem 0.0625rem 0.25rem rgba(0, 0, 0, 0.2);
+}
+
+.modal-content p {
+    margin-bottom: 0.9375rem;
+    font-size: 1.1rem;
+}
+
+.modal-content input,
+.modal-content select,
+.modal-content button {
+    width: calc(100% - 2.5rem);
+    padding: 0.625rem;
+    margin: 0.625rem 0;
+    font-size: 1rem;
+    border-radius: 0.625rem;
+    border: 0.125rem solid #ffa500;
+}
+
+.modal-content button {
+    background: #ff7f50;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.modal-content button:hover {
+    background: #e85d04;
+}
+
+.modal-content .close {
+    position: absolute;
+    top: 0.625rem;
+    color: #e85d04;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    background: #ffe5b4;
+    padding: 0.3125rem;
+    border-radius: 50%;
+    border: 0.125rem solid #ffa500;
+}
+
+.modal-content .close:hover {
+    color: #ff7f50;
+}
+
+.modal-content input,
+.modal-content select {
+    background-color: #fffbe6;
+}
+
+.modal-content input:focus,
+.modal-content select:focus {
+    border-color: #ffcc80;
+    outline: none;
+}
+
+.modal-content input[type="text"],
+.modal-content input[type="number"],
+.modal-content select {
+    font-family: 'Comic Sans MS', cursive;
+}
+
+.modal-content button {
+    font-family: 'Comic Sans MS', cursive;
+}
+
+.stock-adjustment {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    margin: 0.625rem 0;
+}
+
+.stock-adjustment button {
+    padding: 0.3125rem 0.625rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border: 0.0625rem solid #ccc;
+    border-radius: 0.3125rem;
+    background-color: #ff7f50;
+    transition: background-color 0.3s ease;
+}
+
+.stock-adjustment button:hover {
+    background-color: #dddddd;
+}
+
+.stock-adjustment input {
+    width: 3.75rem;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.footer {
+    grid-area: footer;
+    background: linear-gradient(to right, #ff7f50, #ffa500);
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    border-top: 0.3125rem solid #e85d04;
+}
+
+@media (max-width: 768px) {
+
+    .header {
+        position: relative;
+    }
+
+    .container {
+        grid-template-rows: auto auto 1fr auto;
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "header"
+            "sidebar"
+            "main"
+            "footer";
+        min-height: 300vh;
+    }
+
+    .sidebar {
+        position: relative;
+        padding: 1rem;
+        border-right: none;
+        border-bottom: 0.3125rem solid #ffa500;
+        overflow-y: auto;
+        width: 90%;
+    }
+    
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .nav-links a {
+        margin: 0.3125rem 0;
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    .main-content {
+        margin: 0;
+        margin-top: 4rem;
+        padding: 1rem;
+    }
+
+    .grid-container {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .card {
+        margin: 0.5rem 0;
+    }
+
+    .modal {
+        align-items: flex-start;
+    }
+
+    .modal-content {
+        width: 90%;
+        padding: 1rem;
+        font-size: 1rem;
+    }
+
+    footer {
+        padding: 0.5rem;
+    }
+}
+
+
+body.fruit {
+    background: linear-gradient(to bottom, #c0fdfb, #5cdb95);
+    color: #05668d;
+}
+
+body.fruit header {
+    background: linear-gradient(to right, #028090, #00a896);
+    color: #fefae0;
+    border-bottom: 0.3125rem solid #05668d;
+}
+
+body.fruit .sidebar {
+    background: linear-gradient(to bottom, #5cdb95, #c0fdfb);
+    color: #028090;
+    border-right: 0.3125rem solid #00a896;
+}
+
+body.fruit .menu-toggle {
+    background: linear-gradient(to bottom, #5cdb95, #c0fdfb);
+    color: #028090;
+    border-right: 0.3125rem solid #00a896;
+}
+
+body.fruit .nav-links a {
+    color: #05668d;
+    background-color: #83c5be;
+}
+
+body.fruit .nav-links a:hover {
+    background-color: #028090;
+    color: white;
+}
+
+body.fruit .card {
+    background-color: #edf6f9;
+    border: 0.125rem solid #83c5be;
+}
+
+body.fruit .card:hover {
+    background-color: #83c5be;
+    color: #fefae0;
+}
+
+body.fruit table {
+    background-color: #c0fdfb;
+    color: #05668d;
+}
+
+body.fruit table th {
+    background-color: #028090;
+    color: white;
+    border-bottom: 0.125rem solid #05668d;
+}
+
+body.fruit th,
+body.fruit table td {
+    background-color: #edf6f9;
+    color: #05668d;
+    border: 0.0625rem solid #83c5be;
+}
+
+body.fruit table tr:hover {
+    background-color: #83c5be;
+    color: #fefae0;
+}
+
+body.fruit footer {
+    background: linear-gradient(to right, #028090, #00a896);
+    color: #fefae0;
+    border-top: 0.3125rem solid #05668d;
+}
+
+body.fruit .modal {
+    background: rgba(255, 255, 255, 0.8);
+}
+
+body.fruit .modal-content {
+    background: linear-gradient(to bottom, #5cdb95, #c0fdfb);
+    border: 0.1875rem solid #05668d;
+    color: #05668d;
+}
+
+body.fruit .modal-content h2 {
+    color: #05668d;
+    text-shadow: 0.0625rem 0.0625rem 0.25rem rgba(0, 0, 0, 0.1);
+}
+
+body.fruit .modal-content input,
+body.fruit .modal-content select,
+body.fruit .modal-content button {
+    border: 0.125rem solid #05668d;
+}
+
+body.fruit .modal-content button {
+    background: #028090;
+    color: white;
+}
+
+body.fruit .modal-content button:hover {
+    background: #05668d;
+}
+
+body.fruit .modal-content .close {
+    color: #05668d;
+    background: #edf6f9;
+    border: 0.125rem solid #05668d;
+}
+
+body.fruit .modal-content .close:hover {
+    color: #028090;
+}
+
+@media (max-width: 48rem) {
+    body.fruit .sidebar {
+        background: linear-gradient(to bottom, #5cdb95, #c0fdfb);
+        border-bottom: 0.3125rem solid #00a896;
+    }
+
+    body.fruit .nav-links a {
+        background-color: #83c5be;
+        color: #05668d;
+    }
+
+    body.fruit .nav-links a:hover {
+        background-color: #028090;
+        color: white;
+    }
+
+    body.fruit .modal-content {
+        background: linear-gradient(to bottom, #5cdb95, #c0fdfb);
+        border: 0.1875rem solid #05668d;
+        color: #05668d;
+    }
+
+    body.fruit .modal-content h2 {
+        color: #05668d;
+    }
+
+    body.fruit .modal-content input,
+    body.fruit .modal-content select,
+    body.fruit .modal-content button {
+        border: 0.125rem solid #05668d;
+        background-color: #edf6f9;
+    }
+
+    body.fruit .modal-content button {
+        background: #028090;
+        color: white;
+    }
+
+    body.fruit .modal-content button:hover {
+        background: #05668d;
+    }
+
+    body.fruit .modal-content .close {
+        color: #05668d;
+        background: #edf6f9;
+        border: 0.125rem solid #05668d;
+    }
+
+    body.fruit .modal-content .close:hover {
+        color: #028090;
+    }
+}

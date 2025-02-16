@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lagerverwaltungssystem</title>
+    <link rel="stylesheet" href="index-styles.css">
+</head>
+<body>
+    <header>
+        <h1>Lagerverwaltungssystem</h1>
+        <p>Effiziente Verwaltung und Organisation leicht gemacht!</p>
+    </header>
+    <main>
+        <section class="form-container">
+            <form action="../lagersystem/backend/create_example.php" method="post">
+                <label for="example">Testen Sie die App:</label>
+                <button type="submit" class="primary-button">App Beispiel</button>
+            </form>
+            <form action="../lagersystem/backend/create_app.php" method="post">
+                <label for="yourdata">Oder geben Sie Ihre Daten ein:</label>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Ihr Name" required maxlength="30">
+
+                <label for="company_name">Firmenname:</label>
+                <input type="text" id="company_name" name="company_name" placeholder="Ihr Firmenname" required maxlength="30">
+
+                <label for="sector">Sparte:</label>
+                <select id="sector" name="sector" required>
+                    <option value="" disabled selected>Bitte wählen</option>
+                    <option value="IT">IT</option>
+                    <option value="Dienstleistung">Dienstleistung</option>
+                    <option value="Maschinenbau">Maschinenbau</option>
+                    <option value="Automobilindustrie">Automobilindustrie</option>
+                    <option value="Elektrotechnik">Elektrotechnik</option>
+                    <option value="Chemie">Chemie</option>
+                    <option value="Finanzen">Finanzen</option>
+                    <option value="Gesundheitswesen">Gesundheitswesen</option>
+                    <option value="Handel">Handel</option>
+                    <option value="Bauindustrie">Bauindustrie</option>
+                    <option value="Energie">Energie</option>
+                    <option value="Logistik">Logistik</option>
+                    <option value="Tourismus">Tourismus</option>
+                    <option value="Medien">Medien</option>
+                    <option value="Telekommunikation">Telekommunikation</option>
+                    <option value="Landwirtschaft">Landwirtschaft</option>
+                    <option value="Pharmaindustrie">Pharmaindustrie</option>
+                    <option value="Bildung">Bildung</option>
+                    <option value="Verarbeitendes Gewerbe">Verarbeitendes Gewerbe</option>
+                    <option value="Beratung">Beratung</option>
+                    <option value="Sonstiges">Sonstiges</option>
+                </select>
+
+                <button type="submit" class="primary-button">App erstellen</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024-2025 Martin Rübner. All rights reserved.</p>
+    </footer>
+</body>
+</html>
